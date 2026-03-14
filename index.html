@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soulvy — App Development Studio</title>
+    <meta name="description" content="Soulvy LLC is an app development studio crafting thoughtful iOS applications.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #fafafa;
+            --text: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --accent: #0071e3;
+            --card-bg: #ffffff;
+            --card-border: rgba(0,0,0,0.06);
+            --section-bg: #f5f5f7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(250,250,250,0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .nav-inner {
+            max-width: 980px; margin: 0 auto;
+            padding: 16px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo {
+            font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em;
+            color: var(--text);
+        }
+        .logo span { color: var(--accent); }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+        nav a:hover { color: var(--text); }
+
+        /* HERO */
+        .hero {
+            padding: 160px 24px 100px;
+            text-align: center;
+            max-width: 720px; margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto 36px;
+            line-height: 1.5;
+        }
+        .hero .cta {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 980px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .hero .cta:hover { background: #0077ed; }
+
+        /* SECTION */
+        section { padding: 80px 24px; }
+        .section-title {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .section-heading {
+            text-align: center;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 48px;
+        }
+
+        /* APPS GRID */
+        .apps-section { background: var(--section-bg); }
+        .apps-grid {
+            max-width: 980px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 36px 28px;
+            border: 1px solid var(--card-border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .app-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        .app-icon {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+            color: #fff; font-weight: 700;
+        }
+        .app-card h3 {
+            font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .app-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ABOUT */
+        .about-content {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* CONTACT */
+        .contact-section { background: var(--section-bg); }
+        .contact-content {
+            max-width: 480px; margin: 0 auto; text-align: center;
+        }
+        .contact-content p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+        .contact-email {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 2px solid var(--text);
+            border-radius: 980px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .contact-email:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--card-border);
+        }
+        footer span { margin: 0 8px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <div class="logo">soulvy<span>.</span></div>
+        <a href="mailto:theobrooks92@gmail.com">Contact</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1>We build apps people love to use.</h1>
+    <p>Soulvy is an app development studio focused on crafting polished, thoughtful iOS experiences.</p>
+    <a href="#apps" class="cta">See Our Work</a>
+</div>
+
+<section id="apps" class="apps-section">
+    <div class="section-title">Our Apps</div>
+    <div class="section-heading">Designed with intention.</div>
+    <div class="apps-grid">
+        <div class="app-card">
+            <div class="app-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">K</div>
+            <h3>Kairos</h3>
+            <p>An intelligent daily planner that helps you make the most of your time with smart scheduling and focus tools.</p>
+        </div>
+        <div class="app-card">
+            <div class="app-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">C</div>
+            <h3>Crisper</h3>
+            <p>A streamlined photo enhancement app that makes your images look stunning with one-tap adjustments.</p>
+        </div>
+        <div class="app-card">
+            <div class="app-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">F</div>
+            <h3>FlexTime</h3>
+            <p>A flexible workout tracker designed for athletes who want to train smarter and track progress effortlessly.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="section-title">About</div>
+    <div class="section-heading">Small studio. Big craft.</div>
+    <div class="about-content">
+        <p>Soulvy LLC is an independent app development studio specializing in iOS and Apple platform applications. We believe great software comes from a relentless focus on user experience, clean design, and attention to every detail.</p>
+        <p>Based in the United States, we design and develop native applications using Swift and the latest Apple technologies.</p>
+    </div>
+</section>
+
+<section class="contact-section" id="contact">
+    <div class="section-title">Get in Touch</div>
+    <div class="section-heading">Let's build something great.</div>
+    <div class="contact-content">
+        <p>Have a project in mind or want to learn more about what we do? We'd love to hear from you.</p>
+        <a href="mailto:theobrooks92@gmail.com" class="contact-email">theobrooks92@gmail.com</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Soulvy LLC. All rights reserved.<span>·</span>Salt Lake City, Utah</p>
+</footer>
+
+</body>
+</html>
